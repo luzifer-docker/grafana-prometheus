@@ -1,4 +1,4 @@
-FROM debian:wheezy
+FROM debian:jessie
 
 ENV GRAFANA_VERSION 2.0.2
 
