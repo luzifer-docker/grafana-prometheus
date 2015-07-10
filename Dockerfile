@@ -19,4 +19,10 @@ VOLUME ["/etc/grafana"]
 
 WORKDIR /usr/share/grafana
 
-ENTRYPOINT ["/usr/sbin/grafana-server", "--config", "/etc/grafana/grafana.ini"]
+ENTRYPOINT ["/usr/sbin/grafana-server"]
+CMD [ \
+  "--config", \
+  "/etc/grafana/grafana.ini", \
+  "cfg:default.paths.data=/var/lib/grafana", \
+  "cfg:default.paths.logs=/var/log/grafana" \
+]
