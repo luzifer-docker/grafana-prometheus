@@ -1,6 +1,6 @@
 # luzifer-docker / grafana-prometheus
 
-This container currently only contains the [Grafana](http://grafana.org/) 2.0.2.
+This container currently only contains the [Grafana](http://grafana.org/) 2.1.3.
 
 ## Running your Grafana image
 --------------------------
@@ -22,5 +22,3 @@ docker run -i -p 3000:3000 \
   -e "GF_SECURITY_ADMIN_PASSWORD=secret  \
   grafana/grafana
 ```
-
-
