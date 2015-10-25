@@ -1,15 +1,16 @@
 FROM debian:jessie
 
 ENV GRAFANA_VERSION 2.1.3
+ENV PLUGINS_VERSION 57055f72c4745abe6c33a26359ebfb6e59920345
 
 RUN apt-get update \
  && apt-get install -y unzip libfontconfig wget adduser openssl ca-certificates \
  && wget https://grafanarel.s3.amazonaws.com/builds/grafana_${GRAFANA_VERSION}_amd64.deb \
  && dpkg -i grafana_${GRAFANA_VERSION}_amd64.deb \
  && cd /tmp \
- && wget https://github.com/grafana/grafana-plugins/archive/master.zip \
- && unzip master.zip \
- && cp -R grafana-plugins-master/datasources/prometheus /usr/share/grafana/public/app/plugins/datasource/
+ && wget https://github.com/grafana/grafana-plugins/archive/${PLUGINS_VERSION}.zip \
+ && unzip ${PLUGINS_VERSION}.zip \
+ && cp -R grafana-plugins-*/datasources/prometheus /usr/share/grafana/public/app/plugins/datasource/
 
 EXPOSE 3000
 
